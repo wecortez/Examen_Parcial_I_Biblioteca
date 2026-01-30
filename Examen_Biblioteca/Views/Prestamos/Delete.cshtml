@@ -1,0 +1,74 @@
+﻿@model Examen_Biblioteca.Models.Prestamos
+
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar Préstamo</h1>
+
+<hr />
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card border-danger">
+            <div class="card-body">
+
+                <h5 class="text-danger mb-3">
+                    ¿Está seguro que desea eliminar este préstamo?
+                </h5>
+
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.FechaPrestamo)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.FechaPrestamo)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.FechaDevolucion)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.FechaDevolucion)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        Devuelto
+                    </dt>
+                    <dd class="col-sm-8">
+                        @(Model.Devuelto ? "Sí" : "No")
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Libro)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Libro.Autor)
+                    </dd>
+
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Miembro)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Miembro.Apellido)
+                    </dd>
+                </dl>
+
+            </div>
+
+            <div class="card-footer d-flex gap-2">
+                <form asp-action="Delete" class="m-0">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">
+                        Eliminar
+                    </button>
+                </form>
+
+                <a asp-action="Index" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
